@@ -10,15 +10,12 @@ import com.github.dappermickie.odablock.sounds.AgsSpec;
 import com.github.dappermickie.odablock.sounds.CollectionLog;
 import com.github.dappermickie.odablock.sounds.CombatAchievements;
 import com.github.dappermickie.odablock.sounds.CoxSounds;
-import com.github.dappermickie.odablock.sounds.CryptSound;
 import com.github.dappermickie.odablock.sounds.DdsSpec;
 import com.github.dappermickie.odablock.sounds.Death;
 import com.github.dappermickie.odablock.sounds.DeclineTrade;
 import com.github.dappermickie.odablock.sounds.DhAxe;
 import com.github.dappermickie.odablock.sounds.DismissRandomEvent;
 import com.github.dappermickie.odablock.sounds.EnteringBankPin;
-import com.github.dappermickie.odablock.sounds.FreezeSound;
-import com.github.dappermickie.odablock.sounds.FriendListSound;
 import com.github.dappermickie.odablock.sounds.GiveBone;
 import com.github.dappermickie.odablock.sounds.HairDresser;
 import com.github.dappermickie.odablock.sounds.KillingPlayer;
@@ -33,14 +30,12 @@ import com.github.dappermickie.odablock.sounds.QuestCompleted;
 import com.github.dappermickie.odablock.sounds.RedemptionProc;
 import com.github.dappermickie.odablock.sounds.ReportPlayer;
 import com.github.dappermickie.odablock.sounds.RubyBoltProc;
-import com.github.dappermickie.odablock.sounds.SerynaSound;
 import com.github.dappermickie.odablock.sounds.SnowBalled;
 import com.github.dappermickie.odablock.sounds.ToaChestLight;
 import com.github.dappermickie.odablock.sounds.ToaChestOpens;
 import com.github.dappermickie.odablock.sounds.TobChestLight;
 import com.github.dappermickie.odablock.sounds.TurnOnRun;
 import com.github.dappermickie.odablock.sounds.Vengeance;
-import com.github.dappermickie.odablock.sounds.WelcomeScreenSound;
 import com.github.dappermickie.odablock.sounds.ZebakRoar;
 import com.google.inject.Provides;
 import com.google.inject.name.Named;
@@ -216,21 +211,6 @@ public class OdablockPlugin extends Plugin
 
 	@Inject
 	private OdablockWarriors odablockWarriors;
-
-	@Inject
-	private FreezeSound freezeSound;
-
-	@Inject
-	private CryptSound cryptSound;
-
-	@Inject
-	private FriendListSound friendListSound;
-
-	@Inject
-	private SerynaSound serynaSound;
-
-	@Inject
-	private WelcomeScreenSound welcomeScreen;
 	// End of sound injections
 
 	@Inject
@@ -314,7 +294,6 @@ public class OdablockPlugin extends Plugin
 				final int currentTick = client.getTickCount();
 				achievementDiaries.setLastLoginTick(currentTick);
 				prayerDown.setLastLoginTick(currentTick);
-				welcomeScreen.onLogin();
 				break;
 		}
 	}
@@ -382,14 +361,6 @@ public class OdablockPlugin extends Plugin
 		{
 			return;
 		}
-		else if (freezeSound.onChatMessage(chatMessage))
-		{
-			return;
-		}
-		else if (cryptSound.onChatMessage(chatMessage))
-		{
-			return;
-		}
 	}
 
 	@Subscribe
@@ -429,7 +400,6 @@ public class OdablockPlugin extends Plugin
 		declineTrade.onMenuOptionClicked(menuOptionClicked);
 		dismissRandomEvent.onMenuOptionClicked(menuOptionClicked);
 		odablockWarriors.onMenuOptionClicked(menuOptionClicked);
-		friendListSound.onMenuOptionClicked(menuOptionClicked);
 	}
 
 	@Subscribe
@@ -488,7 +458,6 @@ public class OdablockPlugin extends Plugin
 	public void onInteractingChanged(InteractingChanged event)
 	{
 		killingRat.onInteractingChanged(event);
-		serynaSound.onInteractingChanged(event);
 	}
 
 	@Subscribe

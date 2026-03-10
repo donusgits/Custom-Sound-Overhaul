@@ -89,17 +89,6 @@ public enum Sound
 	SNOWBALL_1("snowball", "Snowball_r1.wav"),
 	SNOWBALL_2("snowball", "Snowball_r2.wav"),
 
-	FREEZE("freeze", "Freeze.wav"),
-
-	CRYPT("crypt", "Crypt.wav"),
-
-	WELCOME_SCREEN_SOUND("welcomescreen", "WelcomeScreen.wav"),
-
-	SERYNA_SOUND("seryna", "Seryna.wav"),
-
-	ZIKLOVER_IS_ON("zikloverison", "ZikloverIsOn.wav"),
-	ZIKLOVER_IS_NOT_ON("zikloverisoff", "ZikloverIsNotOn.wav"),
-
 	WARRIOR("warriors", "odablock_warriors.wav");
 
 	private final String resourceName;
